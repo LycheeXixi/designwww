@@ -1,0 +1,114 @@
+/* components/Navbar.module.css */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 10000000;
+    margin: 0px;
+    background: transparent;
+    /* To ensure it's above all other content */
+}
+
+.opaque {
+    /* background: #008ffb; */
+    backdrop-filter: blur(10px);
+}
+
+.line {
+    position: relative;
+    margin-top: 0px;
+    top: 0;
+    left: 50%;
+    /* Center the line */
+    transform: translateX(-50%);
+    /* Ensure it's perfectly centered */
+    width: 75%;
+    /* Adjust to desired length */
+    height: 0.05rem;
+    background-color: #f6f6f6;
+    /* Color of the line */
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    /* Vertically centers the logo */
+    margin-right: 2.5rem;
+    margin-left: 2.5rem;
+}
+
+.navList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Vertically centers items in the flex container */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.navItem {
+    margin: 0 7em;
+    justify-content: space-between;
+}
+
+.navItem a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+
+.navItem a:hover {
+    color: #ddd;
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .navItem {
+        margin: 0 3em;
+    }
+
+    .navItem a {
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .navList {
+
+        gap: 1em;
+        align-items: flex-start;
+        /* Align items to the start of the container */
+    }
+
+    .navItem {
+        margin: 0.5em 0;
+    }
+
+    .navItem a {
+        font-size: 1.1rem;
+        padding: 0.5em 0;
+    }
+
+    .navbar::after {
+        width: 90%;
+        /* Adjust the width of the line for mobile screens */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .logoContainer {
+        margin: 1rem 0;
+    }
+
+    .logo {
+        max-width: 70%;
+        /* Adjust as needed */
+    }
+}

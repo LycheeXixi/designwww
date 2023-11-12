@@ -1,92 +1,177 @@
-.container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
+.gradientBackground {
+  background: linear-gradient(to bottom right, #008ffb, #d6dcff);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0 0 1rem;
-  line-height: 1.15;
-  font-size: 3.6rem;
-}
-
-.title {
-  text-align: center;
-}
-
-.title,
-.description {
-  text-align: center;
-}
-
-.description {
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
-
-.grid {
-  display: flex;
-  align-items: center;
+  /* Centers content horizontally */
   justify-content: center;
-  flex-wrap: wrap;
-
-  max-width: 800px;
-  margin-top: 3rem;
+  /* Centers content vertically */
+  padding-left: 2.5em;
+  padding-top: 4rem;
+  width: 100%;
+  min-height: 100vh;
+  /* Ensures at least full viewport height */
+  overflow-x: hidden;
 }
 
-.card {
-  margin: 1rem;
-  flex-basis: 45%;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition:
-    color 0.15s ease,
-    border-color 0.15s ease;
+.gradientBackground::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 30%;
+  height: 60%;
+  background: url('/Mask.svg');
+  background-size: cover;
+  border-top-left-radius: 100%;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.largeTextL {
+  color: white;
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: 1em;
+  width: 8em;
+  transform: translateY(100%) translateX(-41%);
+  /* Adjust horizontally to the left of the centered line */
+  z-index: 0;
 }
 
-.card h3 {
-  margin: 0 0 1rem 0;
+.smallTextL {
+  color: white;
   font-size: 1.5rem;
+  width: 15em;
+  font-weight: normal;
+  transform: translateY(230%) translateX(-72%);
 }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
+.largeTextL,
+.smallTextL,
+.introductionTextR {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+.startPlanningButton {
+  background-color: #fd6188;
+  color: white;
+  border: none;
+  border-radius: 1.5em;
+  /* optional, if you want rounded edges */
+  padding: 0.8em 1em;
+  /* adjust padding as needed */
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  top: calc(70% + 2rem);
+  /* adjust as needed to position it right below the smallTextL */
+  transform: translateY(350%) translateX(-245%);
+  z-index: 1000;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.startPlanningButton:hover {
+  background-color: #e45077;
+  /* a slightly darker shade for hover effect */
+}
+
+.introductionTextR {
+  position: absolute;
+  top: 80%;
+  right: 1.5rem;
+  /* This will keep the text 1.5rem from the right edge */
+  color: white;
+  font-size: 1.2rem;
+  font-weight: normal;
+  width: 20%;
+  /* Adjust width as needed to prevent overflowing */
+  transform: translateY(-15%) translateX(-50%);
+  text-align: justify;
+  z-index: 1000;
   line-height: 1.5;
 }
 
-.logo {
-  height: 1em;
+.aboutSection h1,
+.contactSection h1 {
+  color: white;
+  font-weight: bold;
+  /* Add any additional styling you want for the titles */
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+.aboutSection,
+.contactSection {
+  align-self: flex-start;
+  padding-left: 10%;
+  margin-top: 25rem; /* Creates a space between sections */
+}
+
+.aboutText,
+.contactText {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+@media only screen and (max-width: 768px) {
+  .largeTextL {
+    font-size: 3rem;
+  }
+
+  .smallTextL {
+    font-size: 1rem;
+  }
+
+  .gradientBackground {
+    padding-left: 1em;
+  }
+
+  .startPlanningButton {
+    font-size: 1.2rem;
+    /* reducing the font-size for smaller screens */
+    padding: 0.6em 0.8em;
+    /* reducing the padding */
+  }
+
+  .introductionTextR {
+    font-size: 1rem;
+    width: 30%;
+    /* You can adjust this to allow more width for the text on tablets */
+  }
+
+  .gradientBackground::after {
+    width: 50%;
+    /* Increase or decrease as required */
+    height: 55%;
+    /* Increase or decrease as required */
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .largeTextL {
+    font-size: 2.3rem;
+  }
+
+  .smallTextL {
+    font-size: 0.9rem;
+  }
+
+  .startPlanningButton {
+    font-size: 1rem;
+    padding: 0.5em 0.7em;
+  }
+
+  .introductionTextR {
+    display: none;
+  }
+
+  .gradientBackground::after {
+    width: 60%;
+    /* Increase or decrease as required */
+    height: 60%;
+    /* Increase or decrease as required */
   }
 }

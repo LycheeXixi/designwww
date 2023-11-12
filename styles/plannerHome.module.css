@@ -1,0 +1,70 @@
+.container {
+    background: linear-gradient(to bottom right, #008ffb, #d6dcff);
+    min-height: 100vh;
+}
+
+.rotatingSvg {
+    position: fixed;
+    bottom: -45%;
+    left: 50%;
+    width: 150%;
+    height: 150%; 
+    z-index: 1; 
+    animation: rotate 10s linear infinite;
+    transform-origin: center center; 
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: translate(-50%, 0) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, 0) rotate(360deg);
+    }
+  }
+ 
+  .searchBarContainer {
+    position: absolute;
+    top: 25%; /* Replace with the actual height of your navbar */
+    left: 25%;
+    width: 50%; /* Make the search bar full width */
+    height: 81px;
+    display: flex;
+    justify-content: center; /* Center the search bar horizontally */
+    padding: 1em; /* Give some space around the search bar */
+    z-index: 1000;
+  }
+  
+  .searchBar {
+    width: 50%; /* Or the width you prefer */
+    padding: 0.5em;
+    border-radius: 58px; /* Gives a rounded shape to the search bar */
+    border: 1px solid #ccc; /* A light border for the search bar */
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0.7; 
+    background: rgba(255, 255, 255, 0.7);
+  }
+  
+  .title {
+    position: relative;
+    color: white;
+    font-size: 4rem;
+    font-weight: bold;
+    width: 8em;
+    transform: translateY(400%) translateX(118%);
+    z-index: 1000;
+  }
+  
+  .text {
+    position: relative;
+    color: white;
+    font-size: 1.5rem;
+    width: 10em;
+    justify-content: space-between;
+    font-weight: normal;
+    transform: translateY(400%) translateX(265%);
+    z-index: 1000;
+  }
+  
+  

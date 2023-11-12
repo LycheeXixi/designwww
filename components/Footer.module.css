@@ -1,0 +1,39 @@
+.siteFooter {
+    color: white;
+    padding: 3rem 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.footerContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0em;
+    transform: translateX(9%);
+    margin: 0 auto;
+}
+
+.footerSection {
+    flex: 1;
+    margin: 0 1em;
+}
+
+.footerSection h2 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.footerSection p {
+    font-weight: normal;
+}
+
+@media only screen and (max-width: 768px) {
+    .footerContainer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footerSection {
+        margin-bottom: 1.5rem;
+    }
+}
