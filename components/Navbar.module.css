@@ -24,7 +24,7 @@
     /* Center the line */
     transform: translateX(-50%);
     /* Ensure it's perfectly centered */
-    width: 75%;
+    width: 80%;
     /* Adjust to desired length */
     height: 0.05rem;
     background-color: #f6f6f6;

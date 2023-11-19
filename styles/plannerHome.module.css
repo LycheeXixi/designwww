@@ -1,6 +1,9 @@
 .container {
     background: linear-gradient(to bottom right, #008ffb, #d6dcff);
     min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    padding-top: 10em;
 }
 
 .rotatingSvg {
@@ -23,48 +26,81 @@
     }
   }
  
-  .searchBarContainer {
+  .pageLayout {
     position: absolute;
-    top: 25%; /* Replace with the actual height of your navbar */
-    left: 25%;
-    width: 50%; /* Make the search bar full width */
-    height: 81px;
     display: flex;
+    flex-direction: column;
     justify-content: center; /* Center the search bar horizontally */
+    align-items: center;
+    width: 100vw;
     padding: 1em; /* Give some space around the search bar */
     z-index: 1000;
   }
+
+  .searchBarContainer {
+    position: relative; /* This is needed to position the search button absolutely within it */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+    margin: 0 auto;
+  }
   
   .searchBar {
-    width: 50%; /* Or the width you prefer */
-    padding: 0.5em;
+    width: 100%;
+    padding: 1em;
+    padding-right: 40px; /* Add padding to make room for the button */
     border-radius: 58px; /* Gives a rounded shape to the search bar */
-    border: 1px solid #ccc; /* A light border for the search bar */
+    border: 1px solid #ccc;
     font-size: 1em;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    opacity: 0.7; 
+    opacity: 0.7;
     background: rgba(255, 255, 255, 0.7);
+    outline: none; /* Optional: removes the outline */
   }
+
+  .searchButton {
+    position: absolute; /* Position it inside the searchBarWrapper */
+    right: 0; /* Align it to the right */
+    top: 0; /* Align it to the top */
+    height: 100%; /* Match the height of the searchBar */
+    border: none;
+    background: none; /* Make the button background transparent */
+    cursor: pointer;
+    padding: 1em; /* You can adjust this as needed */
+    border-top-right-radius: 58px; /* Match the search bar's border-radius */
+    border-bottom-right-radius: 58px; /* Match the search bar's border-radius */
+}
+
+.searchButton img {
+    width: 24px; /* or the size you want */
+    height: auto;
+}
   
   .title {
     position: relative;
     color: white;
+    margin-top: 1em;
     font-size: 4rem;
     font-weight: bold;
     width: 8em;
-    transform: translateY(400%) translateX(118%);
     z-index: 1000;
+    text-align: center;
   }
   
   .text {
+    margin-top: 1em;
     position: relative;
     color: white;
     font-size: 1.5rem;
     width: 10em;
     justify-content: space-between;
     font-weight: normal;
-    transform: translateY(400%) translateX(265%);
     z-index: 1000;
+  }
+
+  .smileSvg {
+    margin-top: 6em;
   }
   
   

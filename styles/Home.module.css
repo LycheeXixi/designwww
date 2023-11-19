@@ -6,12 +6,19 @@
   /* Centers content horizontally */
   justify-content: center;
   /* Centers content vertically */
-  padding-left: 2.5em;
-  padding-top: 4rem;
+  /* padding-left: 2.5em; */
+  padding-top: 10em;
   width: 100%;
   min-height: 100vh;
   /* Ensures at least full viewport height */
   overflow-x: hidden;
+}
+
+.heroContainer{
+  display: grid;
+  /* flex-direction: column; */
+  justify-self: left;
+  width: 78%;
 }
 
 .gradientBackground::after {
@@ -30,9 +37,10 @@
   color: white;
   font-size: 5rem;
   font-weight: bold;
-  margin-bottom: 1em;
+  margin-bottom: 0.3em;
   width: 8em;
-  transform: translateY(100%) translateX(-41%);
+  margin-top: 1em;
+  /* transform: translateY(100%) translateX(-41%); */
   /* Adjust horizontally to the left of the centered line */
   z-index: 0;
 }
@@ -42,7 +50,7 @@
   font-size: 1.5rem;
   width: 15em;
   font-weight: normal;
-  transform: translateY(230%) translateX(-72%);
+  /* transform: translateY(230%) translateX(-72%); */
 }
 
 .largeTextL,
@@ -60,19 +68,22 @@
   color: white;
   border: none;
   border-radius: 1.5em;
+  margin-top: 4em;
   /* optional, if you want rounded edges */
   padding: 0.8em 1em;
   /* adjust padding as needed */
   font-size: 1.5rem;
+  width: fit-content;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  top: calc(70% + 2rem);
+  /* top: calc(70% + 2rem); */
   /* adjust as needed to position it right below the smallTextL */
-  transform: translateY(350%) translateX(-245%);
+  /* transform: translateY(350%) translateX(-245%); */
   z-index: 1000;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   position: relative;
 }
+
 
 .startPlanningButton:hover {
   background-color: #e45077;
@@ -80,16 +91,16 @@
 }
 
 .introductionTextR {
-  position: absolute;
-  top: 80%;
-  right: 1.5rem;
+  /* position: absolute; */
+  /* right: 1.5rem; */
   /* This will keep the text 1.5rem from the right edge */
   color: white;
   font-size: 1.2rem;
   font-weight: normal;
   width: 20%;
+  justify-self: right;
   /* Adjust width as needed to prevent overflowing */
-  transform: translateY(-15%) translateX(-50%);
+  /* transform: translateY(-15%) translateX(-50%); */
   text-align: justify;
   z-index: 1000;
   line-height: 1.5;
@@ -117,6 +128,7 @@
 }
 
 @media only screen and (max-width: 768px) {
+  
   .largeTextL {
     font-size: 3rem;
   }
@@ -138,7 +150,10 @@
 
   .introductionTextR {
     font-size: 1rem;
-    width: 30%;
+    width: 100%;
+    justify-self: left;
+    text-align: left;
+    margin-top: 3em;
     /* You can adjust this to allow more width for the text on tablets */
   }
 
@@ -153,6 +168,10 @@
 @media only screen and (max-width: 500px) {
   .largeTextL {
     font-size: 2.3rem;
+  }
+
+  .heroContainer{
+    width: 100%;
   }
 
   .smallTextL {

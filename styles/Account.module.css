@@ -1,0 +1,7 @@
+.container {
+    background: linear-gradient(to bottom right, #008ffb, #d6dcff);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    padding-top: 10em;
+}

@@ -3,8 +3,28 @@ import styles from '../styles/Home.module.css';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import Link from 'next/link';
+import { initializeApp } from "firebase/app";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import React, { useState, useEffect } from 'react';
+import {auth} from './auth';
 
 export default function Home() {
+
+   const [loggedIn, setLoggedIn] = useState(false);
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/auth.user
+      const uid = user.uid;
+      console.log(user)
+        setLoggedIn(true)
+    } else {
+      console.log("User Signed Out")
+      setLoggedIn(false)
+    }
+  });
+          
   return (
     // pages/index.js
     <div className={styles.gradientBackground}>
@@ -12,17 +32,21 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
       </Head>
       <Navbar></Navbar>
-      
-      <div className={styles.leftText}>
+
+      <div className={styles.heroContainer}>
         <div className={styles.largeTextL}>Plan Your Travel More Flexibly.</div>
+        {/* Plan your travel flexibly */}
         <div className={styles.smallTextL}>Make your detailed and personal plan in Helsinki.</div>
+        {/* //Personalize your travel plan */}
+        <Link href="/signin" className={styles.startPlanningButton}>
+          Start Planning
+        </Link>
+        
+        <div className={styles.introductionTextR}>
+          Welcome to the Travel Planner website for Helsinki! Dive deep into personalized travel plans, tailored to your unique desires and interests. Start your adventure with us and explore Helsinki like never before.
+        </div>
       </div>
-      <Link href="/plannerHome">
-      <button className={styles.startPlanningButton}>Start Planning</button>
-      </Link>
-      <div className={styles.introductionTextR}>
-        Welcome to the Travelplanner website for Helsinki! Dive deep into personalized travel plans, tailored to your unique desires and interests. Start your adventure with us and explore Helsinki like never before.
-      </div>
+
 
       <div id="about" className={styles.aboutSection}> {/* Using "id" for navigation */}
         <h1>About Us</h1>

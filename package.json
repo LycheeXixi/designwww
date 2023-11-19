@@ -6,9 +6,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "mapbox-gl": "^2.15.0",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-map-gl": "^7.1.6"
   },
   "engines": {
     "node": ">=18"
