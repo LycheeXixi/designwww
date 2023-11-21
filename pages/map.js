@@ -18,6 +18,36 @@ export default function Map() {
   const [lat, setLat] = useState(60.163);
   const [zoom, setZoom] = useState(13);
   const [isLeftAligned, setLeftAligned] = useState(false);
+
+const transformedData = jsonData.map(item => {
+  console.log(item)
+  // Here, you need to extract necessary information from your jsonData item
+  const coordinates = []; // Set coordinates - example: [-77.034084142948, 38.909671288923]
+  const address = item.formattedAddress || ''; // Extract address
+  const city = ''; // Extract city
+  const country = ''; // Extract country
+  const phone = ''; // Extract phone number
+  // ... Extract other necessary properties
+
+  // Return GeoJSON Feature object structure for each item
+  return {
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: coordinates
+    },
+    properties: {
+      phoneFormatted: phone,
+      phone: phone.replace(/\D/g, ''), // Remove non-numeric characters from phone number
+      address: address,
+      city: city,
+      country: country
+      // ... Add other properties accordingly
+    }
+  };
+});
+console.log(transformedData)
+
 const stores = {
   "type": "FeatureCollection",
   "features": [
@@ -347,7 +377,7 @@ const stores = {
 
 
   function flyToStore(currentFeature) {
-    console.log(currentFeature.geometry.coordinates)
+    //console.log(currentFeature.geometry.coordinates)
     map.current.flyTo({
       center: [currentFeature.geometry.coordinates[0] - 0.004, currentFeature.geometry.coordinates[1]],
       zoom: 15

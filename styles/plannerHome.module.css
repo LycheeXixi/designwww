@@ -1,9 +1,12 @@
 .container {
     background: linear-gradient(to bottom right, #008ffb, #d6dcff);
-    min-height: 100vh;
+    /* min-height: 100vh; */
     display: flex;
     flex-direction: row;
     padding-top: 10em;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
 }
 
 .rotatingSvg {
@@ -11,8 +14,8 @@
     bottom: -45%;
     left: 50%;
     width: 150%;
-    height: 150%; 
-    z-index: 1; 
+    height: 150%;
+    z-index: 0; 
     animation: rotate 10s linear infinite;
     transform-origin: center center; 
   }
@@ -27,14 +30,12 @@
   }
  
   .pageLayout {
-    position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center the search bar horizontally */
+    justify-content: top; /* Center the search bar horizontally */
     align-items: center;
     width: 100vw;
     padding: 1em; /* Give some space around the search bar */
-    z-index: 1000;
   }
 
   .searchBarContainer {
@@ -42,8 +43,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 30%;
+    width: 60%;
+    min-width: 300px;
+    max-width: 500px;
     margin: 0 auto;
+    z-index: 1;
   }
   
   .searchBar {
@@ -101,6 +105,22 @@
 
   .smileSvg {
     margin-top: 6em;
+    z-index: 1;
+    margin-bottom: 5em;
   }
   
-  
+  .mapContainer {
+    position: absolute;
+    top: 100%;
+    transition: top 0.5s;
+    overflow: hidden;
+    border-radius: 15px 15px 0px 0px;
+  }
+
+  .appear{
+    top: 40vh;
+  }
+
+  .disappear{
+    display: none;
+  }
