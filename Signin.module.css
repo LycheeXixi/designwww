@@ -1,0 +1,219 @@
+.container {
+  position: relative;
+    background: linear-gradient(to bottom right, #008ffb, #d6dcff);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 30%;
+  height: 60%;
+  background: url('/Mask.svg');
+  background-size: cover;
+  border-top-left-radius: 100%;
+  z-index: 01;
+}
+.welcomeSection {
+    text-align: left;
+    padding-top: 5em;
+    padding-bottom: 5em;
+    padding-left: 10em;
+    padding-right: 25em;
+    margin-left: 24em;
+    margin-right: 0.6em;
+    margin-top: 6em;
+    margin-bottom: 5em;
+    background: linear-gradient(to right, #4CC3F8, #57aeff00);
+    height:35em;
+    width:50em;
+    border-radius: 2em;
+  }
+
+  .welcomeSection::before{
+    content: '';
+    position: absolute;
+    height: 0.07em;
+    top: 44%;
+    border-left: 2.4em solid #ffffff;
+    border-right: 2em solid #ccc;
+    right: 1em;
+    left: 15.2em;
+  }
+    
+  
+  .welcomeSection h1 {
+    font-size: 3em;
+    margin-left: -3em;
+    margin-top: 0em;
+    padding: 1.3em;
+    color: #fff;
+  }
+  
+  .welcomeSection p {
+    font-size: 0.83em;
+    margin-left: -10em;
+    margin-top: -6em; 
+    padding: 4em;
+    color: #fff;
+  }
+
+  .welcomeSection .learnMoreBtn {
+    background-color: #1793FF;
+    color: white;
+    border: none;
+    margin-left: -6em;
+    margin-bottom: 2em;
+    border-radius: 1.5em;
+    margin-top: 0.7em;
+    /* optional, if you want rounded edges */
+    padding: 0.8em 0.5em;
+    /* adjust padding as needed */
+    font-size: 0.8rem;
+    width: 9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* top: calc(70% + 2rem); */
+    /* adjust as needed to position it right below the smallTextL */
+    /* transform: translateY(350%) translateX(-245%); */
+    z-index: 1000;
+    /* margin-bottom: 2rem; */
+    position: relative;
+  }
+  
+  .welcomeSection .learnMoreBtn:hover {
+    background-color: rgb(0, 100, 139); /* or a darker shade for hover effect */
+  }
+  
+  /* Sign In Section */
+.signInSection {
+
+    padding: 3em;
+    margin-right: 32em;
+    margin-top: 3.2em;
+    background: linear-gradient(to left, #59ddf4, #59ddf400);
+    border: 1em; 
+    border-radius: 0.8em; 
+  }
+
+  .signInSection::before{
+    content: '';
+    position: absolute;
+    height: 0.07em;
+    top: 42%;
+    border-left: 1.7em solid #ffffff;
+    border-right: 2em solid #ccc;
+    right: 1em;
+    left: 68.5em;
+  }
+  .signInSection h2{
+    font-size: 2em;
+    margin-right: 1em;
+    margin-top: 0.2em; 
+    width: 5em;
+    height: 2em;
+    padding-right: -2em;
+    padding-left: 1em;
+    padding-top: 0.1em;
+    color: #fff;
+  }
+
+.signInForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 18em;
+    margin: 1.8em auto;
+    color: #ffffff; 
+    font-size: 0.8em; 
+  }
+
+
+  .inputField {
+    width: 200%;
+    height: 3em;
+    padding: 2em;
+    border: 3px solid #ccc;
+    border-radius: 5em;
+    margin-bottom: 2em;
+  }
+
+  .passwordbox {
+    width: 100%;
+    background-color: rgba(64, 145, 177, 0.604);
+    height: 0.2em;
+    padding: 1em;
+    border: 0em;
+    border-radius: 5em;
+    margin-bottom: 1.5em;
+  }
+
+  .emailbox{
+    width: 100%;
+    background-color: rgba(64, 145, 177, 0.604);
+    height: 0.2em;
+    padding: 1em;
+    border: 0em;
+    border-radius: 5em;
+    margin-top: -1em;
+    margin-bottom: 2em;
+  }
+
+  .passwordbox::placeholder {
+    color: rgba(56, 56, 56, 0.448); /* 占位符文本颜色 */
+    font-size: 1em; /* 占位符文本字体大小 */
+    border-radius: 5em;
+  }
+  
+  .emailbox::placeholder {
+    color:rgba(56, 56, 56, 0.448);
+    font-size: 1em;
+    max-width: 8em;
+  }
+  
+  .inputLabel {
+    font-size: 2em;
+    color: #555;
+    margin-bottom: 1em;
+  }
+  
+  /* Form Footer */
+  .formFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    
+  }
+  
+  .formFooter p{
+    font-size: 0.5em;
+    color: #ffffffa5;
+    margin-bottom: 1em;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+
+
+  /* Sign In Button */
+  .signInButton {
+    font-size: 1em;
+    width: 100%;
+    background-color: #fd6188;
+    color: #ffffff;
+    padding: 0.6em;
+    border: none;
+    border-radius: 5em;
+    cursor: pointer;
+  }
+  
+  .signInButton:hover {
+    background-color: rgb(166, 63, 63); 
+  }
+
