@@ -5,7 +5,7 @@ import SearchBar from './searchBar'
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import React, { useState, useEffect } from 'react';
-import { auth } from '../pages/auth';
+import { auth } from '../public/auth';
 import Map from './map';
 
 export default function SearchFunction() {

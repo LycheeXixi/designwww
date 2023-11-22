@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import React, { useState, useEffect } from 'react';
-import {auth} from './auth';
+import {auth} from '../public/auth';
 
 export default function Home() {
 

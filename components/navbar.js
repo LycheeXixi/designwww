@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import styles from './Navbar.module.css';
 import React, { useState, useEffect } from 'react';
-import { auth } from '../pages/auth';
+import { auth } from '../public/auth';
 import { signOut } from 'firebase/auth';
 
 function Navbar(e) {

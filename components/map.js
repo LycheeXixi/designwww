@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import React, { useRef, useEffect, useState } from 'react';
-import { auth } from '../pages/auth';
+import { auth } from '../public/auth';
 import mapboxgl from '!mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import ReactDOM from 'react-dom';

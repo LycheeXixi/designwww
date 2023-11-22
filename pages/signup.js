@@ -4,7 +4,7 @@ import Navbar from '../components/navbar';
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import React, { useState, useEffect } from 'react';
-import {auth} from './auth'
+import {auth} from '../public/auth'
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
