@@ -55,7 +55,7 @@ if(jsonData!=null){
       }
     };
   });
-  const transformedData = {features: transformedFromMap}
+  const transformedData = {type: "FeatureCollection", features: transformedFromMap}
   setTransformedData(transformedData);
 
   console.log(transformedData)
@@ -78,7 +78,23 @@ const stores = transformedData;
 
   useEffect(() => {
     if(stores!=null){
-      if (map.current) return; // initialize map only once
+      if (map.current) {
+        map.current.getSource('locations').setData(stores)
+        buildLocationList(stores);
+        document.querySelectorAll('.marker').forEach((e) => {
+          e.remove();
+        })
+        for (const feature of stores.features) {
+          // create a HTML element for each feature
+          const el = document.createElement('div');
+          el.style.backgroundImage = 'url(/RedDot.svg)';
+          el.className = 'marker';
+        
+          // make a marker for each feature and add to the map
+          new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map.current);
+        }
+        return
+      }; // initialize map only once
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
         style: 'mapbox://styles/mapbox/streets-v12',
@@ -144,6 +160,11 @@ const stores = transformedData;
     }
 
     function buildLocationList(stores) {
+      if(document.getElementById('listings').childElementCount>0){
+        Array.from(document.getElementById('listings').children).forEach((e) => {
+          e.remove();
+        })
+      }
       for (const store of stores.features) {
         /* Add a new listing section to the sidebar. */
         const listings = document.getElementById('listings');
