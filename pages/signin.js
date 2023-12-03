@@ -11,6 +11,7 @@ function SignIn() {
 
 const [warningId, setWarningId] = useState("");
 const [loggedIn, setLoggedIn] = useState(false);
+
 onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
@@ -47,6 +48,7 @@ onAuthStateChanged(auth, (user) => {
                 const errorMessage = error.message;
                 console.log(errorCode);
                 console.log(errorMessage);
+                setWarningId(errorCode);
             })
     }
 
@@ -65,18 +67,23 @@ onAuthStateChanged(auth, (user) => {
             {loggedIn ? "Logged In" : <div className={styles.signInSection}>
                 
                 <h2>Sign in</h2>
+                <p>{warningId}</p>
                 <form className={styles.signInForm} onSubmit={handleSubmit}>
-                    <input id="email-input" type="text" placeholder="Email"/>
-                    <input id="password-input" type="password" placeholder="Password"/>
-                    <div className={styles.formFooter}>
-                        <label>
-                            <input type="checkbox" />
-                            Remember Me
-                        </label>
-                    </div>
-                
-                    <button type="submit">Sign in</button>
-                </form>
+           
+           <input id="email-input" type="text" className={styles.emailbox} placeholder="Email"/>
+
+         
+           <input id="password-input" type="password" className={styles.passwordbox} placeholder="Password"/>
+           
+           <div className={styles.formFooter}>
+               <label>
+                   <input type="checkbox" />
+                   Remember Me  
+               </label>
+           </div>
+       
+           <button type="submit" className={styles.signInButton}>Sign in</button>
+       </form>
             </div>}
         </div>
     );

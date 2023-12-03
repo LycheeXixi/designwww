@@ -1,0 +1,84 @@
+.filter {
+  position: absolute;
+  display: inline-block;
+  padding: 1em; /* Adjusted padding */
+  margin-top: 0.5em;
+  z-index: 100000;
+  left: 60%;
+  /* ... other styles ... */
+}
+.filter__iconButton{
+
+  width: 3em; /* Adjust the width as needed */
+  color: #84b1ec;
+  height: 3em; /* Adjust the height as needed */
+  background: none;
+  border: none;
+  transition: all 0.3s;
+}
+.filter__iconButton:hover {
+  /* Change the source to the icon for hover state */
+  src: '/filteropen.svg';
+}
+
+.filter__button {
+  position: relative;
+  border-radius: 3em;
+  padding: 0.5em;
+  width: 3em;
+  cursor: pointer;
+  border: transparent;
+  font-weight: 600;
+  background-color: #84b1ec;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  z-index: 9; 
+}
+
+.filter__button:hover {
+  background-color: #174a93;
+  z-index: 10; 
+}
+
+.filter__dropdown {
+  
+  font-size: 0.9em;
+  font-weight:600 ;
+  color: #2b70cb;
+  text-align: center;
+  padding: 1em; /* Adjusted padding */
+  margin-right: 2em; /* Adjusted margin */
+  margin-top: 0.5em; /* Updated */
+  top: 120%; /* Updated */
+  left: 0; /* Updated */
+  width:14em;
+  background-color: rgba(236, 236, 236, 0.793);
+  border: 1em;
+  border-radius: 0.8em;
+  z-index: 100000; 
+
+
+  .filter__dropdown_button {
+      font-size: 0.9em;
+      font-weight: 600;
+      width: 80%;
+      background-color:#ffffff ;
+      color: #fd6188;
+      padding: 1em;
+      margin-bottom: 1.5em;
+      border: none;
+      border-radius: 5em;
+      cursor: pointer;
+  }
+  .filter__dropdown_button:hover {
+      font-size: 0.9em;
+      width: 100%;
+      background-color:#fd6188 ;
+      color: #ffffff;
+      padding: 1em;
+      margin-bottom: 1.5em;
+      border: none;
+      border-radius: 5em;
+      cursor: pointer;
+  }
+}

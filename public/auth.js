@@ -1,4 +1,5 @@
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import React from "react";
 
@@ -14,7 +15,7 @@ import React from "react";
         // Initialize Firebase outside of the component
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
-
+        export const db = getFirestore(app);
 
         export { auth };
         export default app;

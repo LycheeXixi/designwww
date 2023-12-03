@@ -1,9 +1,10 @@
 
 
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import styles from '../styles/plannerHome.module.css';
+import Filter from "./Filter";
 
-const SearchBar = ({ onSearchData }) => {
+const SearchBar = ({ onSearchData, queryText }) => {
     const [searchTerm, setSearchTerm] = useState(' ');
 
     const handleInput = (event) => {
@@ -20,7 +21,7 @@ const SearchBar = ({ onSearchData }) => {
     const search = () => {
         console.log(searchTerm);
 
-        const apiKey = 'AIzaSyCYgdGcRVj0aEzr-Y_AEDy6tGZZeEBZE0Q'; // Replace with your actual API key
+        const apiKey = 'AIzaSyCYgdGcRVj0aEzr-Y_AEDy6tGZZeEBZE0Q'; 
         const url = 'https://places.googleapis.com/v1/places:searchText';
 
         const data = {
@@ -48,6 +49,7 @@ const SearchBar = ({ onSearchData }) => {
                 // Handle the response data here
                 console.log(data);
                 onSearchData(data);
+                queryText(searchTerm) //Sends data back to searchfunction.jsx
             })
             .catch(error => {
                 // Handle errors here
@@ -58,15 +60,15 @@ const SearchBar = ({ onSearchData }) => {
 
     return (
         <div className={styles.searchBarContainer}>
-            <button type="submit" onClick={search} className={styles.searchButton}>
-                <img src="/Search.svg" alt="Search" />
-            </button>
             <input id="textbox" type="text"
                 value={searchTerm}
                 onInput={handleInput}
                 className={styles.searchBar}
                 onKeyDown={handleKeyPress}
                 placeholder="Search..." />
+            <button type="submit" onClick={search} className={styles.searchButton}>
+                <img src="/Search.svg" alt="Search" />
+            </button>
         </div>
     )
 

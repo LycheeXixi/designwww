@@ -9,6 +9,11 @@
     position: relative;
 }
 
+.filterIcon {
+  position: absolute;
+  cursor: pointer;
+  }
+
 .rotatingSvg {
     position: fixed;
     bottom: -45%;
@@ -32,6 +37,7 @@
   .pageLayout {
     display: flex;
     flex-direction: column;
+    position: relative;
     justify-content: top; /* Center the search bar horizontally */
     align-items: center;
     width: 100vw;
@@ -41,9 +47,10 @@
   .searchBarContainer {
     position: relative; /* This is needed to position the search button absolutely within it */
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 60%;
+    width: 100%;
     min-width: 300px;
     max-width: 500px;
     margin: 0 auto;
@@ -65,7 +72,7 @@
 
   .searchButton {
     position: absolute; /* Position it inside the searchBarWrapper */
-    right: 0; /* Align it to the right */
+    right:0%; /* Align it to the right */
     top: 0; /* Align it to the top */
     height: 100%; /* Match the height of the searchBar */
     border: none;
@@ -74,6 +81,7 @@
     padding: 1em; /* You can adjust this as needed */
     border-top-right-radius: 58px; /* Match the search bar's border-radius */
     border-bottom-right-radius: 58px; /* Match the search bar's border-radius */
+    z-index: 10000;
 }
 
 .searchButton img {
@@ -114,13 +122,14 @@
     top: 100%;
     transition: top 0.5s;
     overflow: hidden;
-    border-radius: 15px 15px 0px 0px;
+    border-radius: 15px px 0px 0px;
   }
 
   .appear{
-    top: 40vh;
+    top: 20vh;
   }
 
   .disappear{
     display: none;
+    visibility: hidden;
   }

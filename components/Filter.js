@@ -1,4 +1,4 @@
-// Import your CSS module
+
 import styles from '../styles/filter.module.css';
 import React, { useState, useRef } from "react";
 
