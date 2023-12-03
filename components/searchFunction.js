@@ -10,12 +10,13 @@ import Map from './map';
 import Filter from './Filter';
 import { useUserContext } from '../contexts/UserContext';
 
-export default function SearchFunction() {
+export default function SearchFunction({uid}) {
     const [jsonData, setJsonData] = useState(null);
     const [queryText, setQueryText] = useState(null);
     const handleSearchdata = (data) => {
         setJsonData(data);
     }
+    console.log(uid)
 
     return (
             <div className={styles.pageLayout}>
@@ -24,7 +25,7 @@ export default function SearchFunction() {
             <div className={`${styles.text}  ${jsonData ? styles.disappear : ""}`}>collection of the most beautiful places and experience </div>
                 <img src="/Smile.svg" className={`${styles.smileSvg} ${jsonData ? styles.disappear : ""}`} />
                 <div className={`${styles.mapContainer} ${jsonData ? styles.appear : ""}`}>
-                <Map jsonData={jsonData} queryText={queryText}/>
+                <Map jsonData={jsonData} queryText={queryText} uid={uid}/>
                 </div>
             </div>
     )

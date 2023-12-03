@@ -14,7 +14,7 @@ import { doc, collection, addDoc, getDoc, setDoc, updateDoc, arrayUnion} from 'f
 import NameBox from './nameBox';
 
 
-export default function Map({ jsonData, queryText }) {
+export default function Map({ jsonData, queryText, uid}) {
   const mapContainer = useRef(null);
   const map = useRef(null);
   let searchPhrase = useRef('')
@@ -24,11 +24,15 @@ export default function Map({ jsonData, queryText }) {
   const [isLeftAligned, setLeftAligned] = useState(false);
   const [transformedData, setTransformedData] = useState(null);
   const [selectedPlaces, setSelectedPlaces] = useState([]);
+ 
   // const [selectedCheckbox, setSelectedCheckbox] = useState([])
   // const [planName, setPlanName] = useState('')
   const [selectedCheckbox, setSelectedCheckbox] = useState([])
-
-
+  const [uidState, setUidState] = useState('')
+  if(uidState != uid){
+    setUidState(uid)
+  }
+  
   useEffect(() => {
     if (jsonData != null) {
       const transformedFromMap = jsonData.places.map(item => {
@@ -325,7 +329,7 @@ export default function Map({ jsonData, queryText }) {
           </div>
           <div id='listings' className={`${styles.listings} `}></div>
         </div>
-        <NameBox selectedCheckbox={selectedCheckbox}></NameBox>
+        <NameBox selectedCheckbox={selectedCheckbox} uid={uidState}></NameBox>
         {/* {selectedCheckbox: [items....]} */}
       </div>
     

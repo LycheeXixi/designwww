@@ -119,7 +119,7 @@ console.error('Error removing document: ', error);
             <a href="/plannerHome">Create a new plan +</a>
         </div>
       )}
-
+    <a href="/plannerHome">Edit or create a plan +</a>
     </div>
   );
 }

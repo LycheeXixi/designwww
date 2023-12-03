@@ -1,13 +1,38 @@
 import styles from '../styles/Map.module.css';
 import React, { useRef, useEffect, useState } from 'react';
-import { collection, getDoc, doc, setDoc, updateDoc, arrayUnion } from 'firebase/firestore';
+import { collection, getDoc, getDocs, doc, setDoc, updateDoc, arrayUnion, query, where, orderBy, limit, onSnapshot, } from 'firebase/firestore';
 import { db } from '../public/auth';
-export default function NameBox({selectedCheckbox}){
-    console.log(selectedCheckbox)
+
+export default function NameBox({selectedCheckbox, uid}){
     const [planName, setPlanName] = useState('')
+    const [existingPlans, setExistingPlans] = useState([]);
+    const [showDropdown, setShowDropdown] = useState(false);
+    const [uidState, setUidState] = useState('')
+    if(uidState != uid){
+      setUidState(uid)
+    }
+
+
+      const handleInputClick = () => {
+        setShowDropdown(true);
+      };
+    
+      const handleInputChange = (e) => {
+        setPlanName(e.target.value);
+      };
+    
+      const handlePlanSelect = (selectedPlan) => {
+        console.log(selectedPlan)
+        setPlanName(selectedPlan);
+        setShowDropdown(false);
+        handleFormSubmit();
+      };
 
     function handleFormSubmit(e){
-        e.preventDefault()
+        if(e){
+            e.preventDefault()
+        }
+        
         saveSelectedPlacesToFirestore()
         showAlert();
       }
@@ -74,11 +99,56 @@ export default function NameBox({selectedCheckbox}){
         window.alert('Saved successfully!'); // Display alert when Save button is clicked
       };
     
+      useEffect(() => {
+        // Fetch existing plans from Firestore
+        const fetchExistingPlans = async () => {
+          try {
+            console.log("set"+uid)
+            if(uid){
+                const plansCollectionRef = collection(db, 'users', uid, 'places'); // Replace 'plans' with your actual collection name
+                console.log(plansCollectionRef)
+                const snapshot = await getDocs(plansCollectionRef);
+                console.log('Snapshot')
+                console.log(snapshot)
+    
+                // console.log(snapshot)
+                const plans = snapshot.docs.map((doc) => doc.id);
+                console.log(plans)
+                setExistingPlans(plans);
+            } else {
+                console.log('No UID')
+                console.log(localStorage.getItem('uid'))
+            }
+
+            
+          } catch (error) {
+            console.error('Error fetching existing plans:', error);
+          }
+        };
+    
+        fetchExistingPlans();
+      }, [uid]);
 
     return(
         <form className={styles.settings}>
-        <input placeholder='Name your plan' type='text' value={planName} onInput={onInput} required></input>
-        <button className={styles.saveButton} onClick={handleFormSubmit}>Save</button>
+        <div onClick={handleInputClick}>Save to collection</div>
+        {showDropdown && (
+        <div className="dropdown">
+          <ul>
+            {existingPlans
+              .map((existingPlan, i) => (
+                <li key={i} onClick={() => handlePlanSelect(existingPlan)}>
+                  {existingPlan}
+                </li>
+              ))}
+              <li>
+                <input placeholder='+ New Collection' type='text' value={planName} onInput={onInput} onChange={handleInputChange}required></input>
+                <button className={styles.saveButton} onClick={handleFormSubmit}>Save</button>
+                </li>
+          </ul>
+        </div>
+      )}
+       
       </form>
     )
 }

@@ -31,7 +31,8 @@ onAuthStateChanged(auth, (user) => {
       <Head>
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
       </Head>
-      <Navbar></Navbar>
+      <Navbar loggedIn={loggedIn} 
+    profile={loggedIn ? { name: "User" } : null}></Navbar>
 
       <div className={styles.heroContainer}>
         <div className={styles.largeTextL}>Plan Your Travel More Flexibly.</div>
