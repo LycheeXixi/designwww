@@ -9,6 +9,7 @@ export default function NameBox({selectedCheckbox}){
     function handleFormSubmit(e){
         e.preventDefault()
         saveSelectedPlacesToFirestore()
+        showAlert();
       }
     
       function onInput(e){
@@ -68,6 +69,11 @@ export default function NameBox({selectedCheckbox}){
           console.error('Error saving selected places:', error);
         }
       };
+
+      const showAlert = () => {
+        window.alert('Saved successfully!'); // Display alert when Save button is clicked
+      };
+    
 
     return(
         <form className={styles.settings}>
