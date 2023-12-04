@@ -9,6 +9,7 @@ import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { doc, getDoc, deleteDoc } from "firebase/firestore";
 import { db } from '../public/auth';
 import PlanList from '../components/planList';
+import ExportPDFButton from '../components/exportBtn';
 
 export default function Account() {
 
@@ -25,21 +26,27 @@ export default function Account() {
       uid = user.uid;
       setLoggedIn(true)
       addDocumentData(uid);
-      console.log(uid)
     } else {
       console.log("User Signed Out")
       setLoggedIn(false)
     }
   });
 
+  console.log('Plans')
+  console.log(plans)
+
 
   const addDocumentData = async (uid) => {
     //Add data to state if null
+    console.log('starting add document data')
+    console.log(uid)
     if (plans == null) {
       try {
         const docRef = collection(db, "users", uid, "places");
         //Creates Path: {db}/users/{uid}/places
         const docSnap = await getDocs(docRef);
+        console.log('getDocs')
+        console.log(docSnap)
         const tempArray = [];
         var index = 0;
         docSnap.forEach((e) => {
@@ -49,6 +56,8 @@ export default function Account() {
             id: e.id,
             data: e.data()
           };
+          console.log('Data Temp')
+          console.log(dataTemp)
           index++;
           //Array.push()
           tempArray.push(dataTemp);
@@ -67,8 +76,10 @@ export default function Account() {
 
   useEffect(() => {
     // Fetch documents when component mounts
-    const uid = localStorage.getItem('uid');
+    // const uid = localStorage.getItem('uid');
+
     if (uid) {
+      console.log(uid)
       addDocumentData(uid);
     }
   }, []);
@@ -103,10 +114,13 @@ console.error('Error removing document: ', error);
       {/* Plans is not null or undefined */}
       {plans && plans.length > 0 ? (
         
-        plans.map((e, i) => <div>
+        plans.map((e, i) => <div id={`list-${i}`}>
           <h2>{e.id}</h2>
+          <input type="checkbox"></input>
           <PlanList
-          plansData={e}/>
+          plansData={e}>
+          </PlanList>
+
           {e && <button onClick={() => {deleteList(i, e.id)}}>Delete</button>}
         </div>
           
@@ -120,6 +134,7 @@ console.error('Error removing document: ', error);
         </div>
       )}
     <a href="/plannerHome">Edit or create a plan +</a>
+    <ExportPDFButton dataToExport={plans}></ExportPDFButton>
     </div>
   );
 }

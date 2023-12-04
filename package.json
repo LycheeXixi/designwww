@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "firebase": "^10.6.0",
+    "jspdf": "^2.5.1",
     "mapbox-gl": "^2.15.0",
     "next": "latest",
     "react": "18.2.0",

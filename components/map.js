@@ -325,7 +325,7 @@ export default function Map({ jsonData, queryText, uid}) {
       <div className={`${styles.sidebar}`}>
         <div className={styles.scrollable}>
           <div className={styles.heading}>
-            <h1>Our locations</h1>
+            <h1>Locations</h1>
           </div>
           <div id='listings' className={`${styles.listings} `}></div>
         </div>

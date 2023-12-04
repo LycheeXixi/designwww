@@ -21,8 +21,9 @@ export default function NameBox({selectedCheckbox, uid}){
         setPlanName(e.target.value);
       };
     
-      const handlePlanSelect = (selectedPlan) => {
+      const handlePlanSelect = (e, selectedPlan) => {
         console.log(selectedPlan)
+        e.preventDefault();
         setPlanName(selectedPlan);
         setShowDropdown(false);
         handleFormSubmit();
@@ -31,10 +32,10 @@ export default function NameBox({selectedCheckbox, uid}){
     function handleFormSubmit(e){
         if(e){
             e.preventDefault()
+            
         }
-        
-        saveSelectedPlacesToFirestore()
-        showAlert();
+        saveSelectedPlacesToFirestore();
+            showAlert();
       }
     
       function onInput(e){
@@ -131,21 +132,19 @@ export default function NameBox({selectedCheckbox, uid}){
 
     return(
         <form className={styles.settings}>
-        <div onClick={handleInputClick}>Save to collection</div>
+        <div className={styles.boxTitle} onClick={handleInputClick}>Save to collection:</div>
         {showDropdown && (
         <div className="dropdown">
-          <ul>
+          <div className={styles.boxContainer}>
             {existingPlans
               .map((existingPlan, i) => (
-                <li key={i} onClick={() => handlePlanSelect(existingPlan)}>
+                <button className={styles.existingPlans} key={i} onClick={(e) => handlePlanSelect(e, existingPlan)}>
                   {existingPlan}
-                </li>
+                </button>
               ))}
-              <li>
-                <input placeholder='+ New Collection' type='text' value={planName} onInput={onInput} onChange={handleInputChange}required></input>
+          </div>
+          <input className={styles.textBox} placeholder='+ New Collection' type='text' value={planName} onInput={onInput} onChange={handleInputChange}required></input>
                 <button className={styles.saveButton} onClick={handleFormSubmit}>Save</button>
-                </li>
-          </ul>
         </div>
       )}
        

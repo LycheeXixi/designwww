@@ -8,15 +8,15 @@ import React, { useState, useEffect,useRef } from 'react';
 import { auth } from '../public/auth';
 import Map from '../components/map';
 import SearchFunction from '../components/searchFunction';
-import Filter from '../components/Filter';
+
 import { collection, addDoc } from "firebase/firestore";
 import { db } from '../public/auth';
 import { useRouter } from 'next/router';
 
 export default function plannerHome() {
     const [loggedIn, setLoggedIn] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-    const dropdownRef = useRef(null);
+
+
     const [uid, setUid] = useState(null);
     
 
@@ -45,7 +45,7 @@ export default function plannerHome() {
                 <Navbar loggedIn={loggedIn}
                     profile={loggedIn ? { name: "User" } : null}></Navbar>
                 <SearchFunction uid={uid}></SearchFunction>
-                <Filter isOpen={isOpen} setIsOpen={setIsOpen} dropdownRef={dropdownRef} />
+                
                 <img src="/Mask1.svg" className={styles.rotatingSvg} alt="Rotating SVG" />
             </div>
         )

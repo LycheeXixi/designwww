@@ -9,8 +9,8 @@ export default function PlanList({plansData}){
     const uid = localStorage.getItem('uid');
     console.log(plansData.id)
     const planName = plansData.id;
-
-    console.log(dataArray)
+    console.log('uid')
+    console.log(uid)
 
     function onEdit(){
         setEdit(!edit);
@@ -47,7 +47,8 @@ export default function PlanList({plansData}){
         <div>
         {dataArray.map((data, i) => (
           <div >
-            <p>{data.destinationName}</p>
+            <h3>{data.destinationName}</h3>
+            <p>{data.address}</p>
             {edit ? <button data-key={i}  onClick={() => deleteItem(i)}>-</button> : ""}
           </div>
         ))}
