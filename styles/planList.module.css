@@ -2,28 +2,26 @@
     display:flex;
     flex-direction: column; 
     align-items: flex-end; 
-    position: absolute;
+    position: relative;
   }
 
   .shadowpng{
     display: flex;
     margin-top: 22em;
 
-    position: absolute;
+    position: relative;
 
   }
 .editButton{
     background-color:  #ee5757;
     font-size: 0.6em;
     height:2.5em;
-    
+    cursor: pointer;
     color: #ffffff;
     border: none;
     border-radius: 12px;
     width:6em;
-    margin-left:15em;
-    margin-top: 6em;
-    position: absolute;
+    position: relative;
     transition: background-color 0.3s;
 }
     
@@ -37,12 +35,42 @@
     background: none;
     border: none;
     transition: all 0.3s;
-    margin-top: 1.6em;
-    margin-left: 18.5em;
-    position: absolute;
+    position: relative;
+    cursor: pointer;
 }
 
 .editButton:hover{
     background-color:  #933737;
 
+}
+
+
+.items {
+    border-radius: 1em;
+    color:#494949;
+    font-size: 1em;
+    margin-bottom: 1em;
+    margin-top: 0.2em;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    background-color:#ffffff9e;
+    padding: 1em;
+    width: 25em;
+    width: 100%;
+  }
+
+  .items h3 {
+    margin: 0;
+  }
+
+.items p {
+    font-size: 0.7em;
+}
+
+.pAlign {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

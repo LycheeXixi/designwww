@@ -1,6 +1,7 @@
 import React from 'react';
 import { jsPDF } from 'jspdf';
 import { useRef } from 'react';
+import styles from '../styles/Account.module.css';
 import { confirmPasswordReset } from 'firebase/auth';
 
 const ExportPDFButton = ({ dataToExport }) => {
@@ -78,7 +79,7 @@ const ExportPDFButton = ({ dataToExport }) => {
   };
 
   return (
-    <button onClick={handleExportPDF}>
+    <button onClick={handleExportPDF} className={styles.exportBtn}>
       Export as PDF
     </button>
   );

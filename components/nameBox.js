@@ -18,7 +18,6 @@ export default function NameBox({selectedCheckbox, uid}){
       };
     
       const handleInputChange = (e) => {
-        setPlanName(e.target.value);
       };
     
       const handlePlanSelect = (e, selectedPlan) => {
@@ -39,7 +38,11 @@ export default function NameBox({selectedCheckbox, uid}){
       }
     
       function onInput(e){
-        setPlanName(e.target.value)
+        if(e.target.value.length < 20){
+          setPlanName(e.target.value);
+        }
+        
+        console.log(e.target.value.length)
       }
 
       const saveSelectedPlacesToFirestore = async () => {

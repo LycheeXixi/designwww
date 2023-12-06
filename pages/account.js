@@ -18,7 +18,7 @@ export default function Account() {
   let plansRef = useRef([])
   const [edit, setEdit] = useState(false);
   let uid = null;
-  
+
   onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
@@ -70,7 +70,7 @@ export default function Account() {
       } catch (error) {
         console.error('Error checking document:', error);
       }
-    } 
+    }
 
   };
 
@@ -88,53 +88,62 @@ export default function Account() {
   // plans != array
   //plans == array, forEach / map
 
-  function onEdit(){
+  function onEdit() {
     setEdit(true);
   }
 
-  async function deleteList(i, planName){
+  async function deleteList(i, planName) {
     const userDocRef = doc(db, 'users', uid, 'places', planName);
     deleteDoc(userDocRef)
-.then(() => {
-console.log('Document successfully deleted!');
-const updatedDataArray = [...plans];
-updatedDataArray.splice(i, 1);
-setPlans(updatedDataArray);
+      .then(() => {
+        console.log('Document successfully deleted!');
+        const updatedDataArray = [...plans];
+        updatedDataArray.splice(i, 1);
+        setPlans(updatedDataArray);
 
-})
-.catch((error) => {
-console.error('Error removing document: ', error);
-});
-}
+      })
+      .catch((error) => {
+        console.error('Error removing document: ', error);
+      });
+  }
 
   return (
     <div className={styles.container}>
+      {/* <img src="/Mask1.svg" className={styles.rotatingSvg} alt="Rotating SVG" /> */}
       <Navbar loggedIn={loggedIn}
         profile={loggedIn ? { name: "User" } : null}></Navbar>
-      {/* Plans is not null or undefined */}
-      {plans && plans.length > 0 ? (
-        
-        plans.map((e, i) => <div id={`list-${i}`}>
-          <h2>{e.id}</h2>
-          <input type="checkbox"></input>
-          <PlanList
-          plansData={e}>
-          </PlanList>
+        <div className={styles.btnContainer}>
+        <h1>My plans</h1>
+        <ExportPDFButton dataToExport={plans}></ExportPDFButton>
+        </div>
+      <div className={styles.plansContainer}>
+        {plans && plans.length > 0 ? (
 
-          {e && <button onClick={() => {deleteList(i, e.id)}}>Delete</button>}
+          plans.map((e, i) => <div className={styles.planlist} id={`list-${i}`}>
+            <div className={styles.title}>
+            <input type="checkbox"></input>
+              <h2>{e.id}</h2>
+              {e && <button onClick={() => { deleteList(i, e.id) }} className={styles.deleteButton}>Delete</button>}
+            </div>
+            <PlanList
+              plansData={e} className={styles.lines}>
+            </PlanList>
+          </div>
+
+
+
+          )
+        ) : (
+          <div>
+            <div className={styles.noplan}>No plans created</div>
+            <a href="/plannerHome" className={styles.newone}>Create a new plan +</a>
+          </div>
+        )}
+        <div className={styles.createnew}>
+          <a href="/plannerHome">Edit or create a plan +</a>
         </div>
-          
-        
-        
-        )
-      ) : (
-        <div>
-            <h2>No plans created</h2>
-            <a href="/plannerHome">Create a new plan +</a>
-        </div>
-      )}
-    <a href="/plannerHome">Edit or create a plan +</a>
-    <ExportPDFButton dataToExport={plans}></ExportPDFButton>
+
+      </div>
     </div>
   );
 }
