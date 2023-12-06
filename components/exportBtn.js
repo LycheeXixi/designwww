@@ -24,7 +24,7 @@ const ExportPDFButton = ({ dataToExport }) => {
     let tempArray = [];
     document.querySelectorAll('[type="checkbox"]').forEach((e) =>{
         if(e.checked){
-            tempArray.push(e.parentElement.id);
+            tempArray.push(e.parentElement.parentElement.id);
             selectedExport.current = tempArray;
             console.log(selectedExport.current);
         }
@@ -37,9 +37,7 @@ const ExportPDFButton = ({ dataToExport }) => {
             newElement.style.display="flex"
             newElement.style.flexDirection="column"
             newElement.style.fontSize = '8px !important';
-            
 
-            console.log(tempArray)
             tempArray.forEach((e) => {
                 const elementCopy = document.getElementById(e).cloneNode(true)
                 elementCopy.style.width=`100%`
@@ -47,6 +45,8 @@ const ExportPDFButton = ({ dataToExport }) => {
                 elementCopy.style.marginBottom='10px'
                 elementCopy.style.padding='10px'
                 elementCopy.style.borderRadius='15px'
+                elementCopy.style.color='#000000'
+                elementCopy.style.minHeight='100%'
                 // elementCopy.style.padding=`1em`
                 newElement.append(elementCopy);
                 newElement.appendChild(document.createElement('br'));
