@@ -1,7 +1,173 @@
+/* Account.module.css */
+
 .container {
     background: linear-gradient(to bottom right, #008ffb, #d6dcff);
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
+    padding-top: 12em;
+    align-items: flex-start;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .plansContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 1170px;
+  }
+
+  
+  .planlist {
+    background-color: rgba(223, 227, 232, 0.541);
+    color: #fff;
+    border-radius: 20px;
+    padding: 1.2em;
+    min-height: 690px;
+    margin: 20px;
+    width: 350px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  .newone{
+    font-size: 1.7em;
+    color: #ffffff;
+    font-weight: 700;
+    width:10.4em;
+    margin-top: 0.3em;
+    background-color:  #1793FF;
+    border-radius: 2em;
+    position: relative;
+    display: flex;
+    z-index: 10001;
+    padding-bottom: 0.3em;
+    height:1.2em;
+    align-items: center; 
+    justify-content: center; 
+  }
+  .newone:hover{
+    background-color: #3b66a2;
+  }
+
+  /* .rotatingSvg{
+    position: relative;
+    bottom: -45%;
+    left: 50%;
+    display: flex;
+
+    width: 150%;
+    height: 150%;
+    z-index: 0; 
+    animation: rotate 10s linear infinite;
+    transform-origin: center center;
+  }
+  @keyframes rotate {
+    0% {
+      transform: translate(-50%, 0) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, 0) rotate(360deg);
+    }
+  } */
+
+  .title {
+    display: flex;
     flex-direction: row;
-    padding-top: 10em;
-}
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1em;
+    margin-bottom: 2em;
+  }
+
+  .title h2 {
+    margin: 0;
+  }
+
+  .deleteButton{
+    background-color: #343434;
+    font-size: 0.6em;
+    height:2.5em;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    width:7em;
+    position: relative;
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+  .deleteButton:hover{
+    background-color: rgb(125, 125, 125);
+  }
+  
+  .noplan{
+   color:#fff;
+   font-size: 4em;
+   margin-left:5.5em;
+   font-weight: 750;
+   margin-top: 0.5em;
+   display: flex;
+   z-index: 1002;
+   position: relative;
+   left:10%;
+  }
+
+  .lines {
+    /* Add styles for the user data content here */
+    margin-bottom: 20px;
+  }
+
+  .createnew {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    min-height: 100px;
+  }
+
+  .createnew a {
+    background-color: #fd6188;
+    color: white;
+    border: none;
+    border-radius: 1.5em;
+    padding: 0.8em 1em;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+    position: relative;
+  }
+  .createnew a:hover{
+    background-color: #e45077;
+  }
+  
+  .exportBtn {
+    background-color: #fd6188;
+    color: white;
+    transition: background-color 0.3s ease;
+    border-radius: 1.5em;
+    padding: 0.8em 1em;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    border: none;
+  }
+
+  .btnContainer {
+    width: 100%;
+    max-width: 1170px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    padding: 1em
+  }
+
+  .btnContainer h1 {
+    margin: 0;
+    color: white;
+  }
+
+  
