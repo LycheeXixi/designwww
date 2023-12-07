@@ -4,13 +4,13 @@ import styles from './Navbar.module.css';
 import React, { useState, useEffect } from 'react';
 import { auth } from '../public/auth';
 import { signOut } from 'firebase/auth';
+import { useRouter } from 'next/router';
 
 function Navbar(e) {
     const [navbar, setNavbar] = useState(false);
     const [loggedIn, setLoggedIn] = useState(false)
     const [profileName, setProfileName] = useState("");
-    console.log("Nav State")
-    console.log(e)
+    const router = useRouter();
 
     const changeBackground = () => {
         if(window.scrollY >= 160) {
@@ -45,7 +45,7 @@ function Navbar(e) {
     const signOutFunction = () => {
         //Sign out from firebase
         signOut(auth).then(() => {
-            console.log("Logged Out")
+            router.push('/signin');
         })
         .catch((error) => {
             console.log("Logout Failed")
