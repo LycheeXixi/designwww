@@ -1,17 +1,39 @@
-import { useState, useEffect } from "react";
 import { collection, doc, updateDoc, arrayRemove, deleteDoc } from 'firebase/firestore';
 import { db } from '../public/auth';
 import styles from '../styles/planList.module.css';
+import { initializeApp } from "firebase/app";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import React, { useState, useEffect } from 'react';
+import {auth} from '../public/auth';
 
-export default function PlanList({ plansData }) {
+export default function PlanList({ plansData, uid }) {
 
   const [edit, setEdit] = useState(false);
   const [dataArray, setDataArray] = useState(plansData.data.dataArray);
-  const uid = localStorage.getItem('uid');
+  // const [loggedIn, setLoggedIn] = useState(false);
+  const [tempUid, setTempUid] = useState('');
+
   console.log(plansData.id)
   const planName = plansData.id;
-  console.log('uid')
-  console.log(uid)
+  
+
+  if(uid!=tempUid){
+    setTempUid(uid);
+  }
+  console.log(uid+ " planlist");
+  // onAuthStateChanged(auth, (user) => {
+  //   if (user) {
+  //     // User is signed in, see docs for a list of available properties
+  //     // https://firebase.google.com/docs/reference/js/auth.user
+  //     const uid = user.uid;
+  //     console.log(user)
+  //       setLoggedIn(true)
+         
+  //   } else {
+  //     console.log("User Signed Out")
+  //     setLoggedIn(false)
+  //   }
+  // });
 
   function onEdit() {
     setEdit(!edit);

@@ -17,13 +17,13 @@ export default function Account() {
   const [plans, setPlans] = useState(null)
   let plansRef = useRef([])
   const [edit, setEdit] = useState(false);
-  let uid = null;
+  const [uid, setUid] = useState('');
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/auth.user
-      uid = user.uid;
+      setUid(user.uid);
       setLoggedIn(true)
       addDocumentData(uid);
     } else {
@@ -126,7 +126,7 @@ export default function Account() {
               {e && <button onClick={() => { deleteList(i, e.id) }} className={styles.deleteButton}>Delete</button>}
             </div>
             <PlanList
-              plansData={e} className={styles.lines}>
+              plansData={e} uid={uid} className={styles.lines}>
             </PlanList>
           </div>
 
