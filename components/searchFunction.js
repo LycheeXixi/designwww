@@ -16,7 +16,7 @@ export default function SearchFunction({uid}) {
     const handleSearchdata = (data) => {
         setJsonData(data);
     }
-    console.log(uid)
+    console.log('searchFunction '+uid)
 
     return (
             <div className={styles.pageLayout}>

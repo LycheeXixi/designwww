@@ -18,7 +18,7 @@ export default function plannerHome() {
 
 
     const [uid, setUid] = useState(null);
-    
+
 
         onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -37,7 +37,7 @@ export default function plannerHome() {
             }
         });
 
-        
+        console.log(uid+' plannerhome')
 
 
         return (

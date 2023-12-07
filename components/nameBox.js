@@ -52,12 +52,7 @@ export default function NameBox({selectedCheckbox, uid}){
         try {
           if (typeof window !== "undefined") {
             console.log('saving-2')
-            // Check if running in the browser
-            console.table(selectedCheckbox)
             if (selectedCheckbox.length > 0) {
-              console.log(selectedCheckbox)
-              const uid = localStorage.getItem('uid');
-              console.log(uid); // Use the uid as needed in your Map component
               if (uid) {
                 const placesCollectionRef = collection(db, 'users', uid, 'places');
                 const dataArray = []
@@ -120,8 +115,6 @@ export default function NameBox({selectedCheckbox, uid}){
                 console.log(plans)
                 setExistingPlans(plans);
             } else {
-                console.log('No UID')
-                console.log(localStorage.getItem('uid'))
             }
 
             
@@ -132,6 +125,8 @@ export default function NameBox({selectedCheckbox, uid}){
     
         fetchExistingPlans();
       }, [uid]);
+
+      console.log('namebox '+uid)
 
     return(
         <form className={styles.settings}>

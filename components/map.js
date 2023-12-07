@@ -315,7 +315,7 @@ export default function Map({ jsonData, queryText, uid}) {
   }
 
 
-
+  console.log('map '+uid)
 
 
 
