@@ -106,13 +106,14 @@
   .noplan{
    color:#fff;
    font-size: 4em;
-   margin-left:5.5em;
    font-weight: 750;
-   margin-top: 0.5em;
    display: flex;
    z-index: 1002;
    position: relative;
-   left:10%;
+   flex-direction: column;
+   justify-content: center;
+   margin: auto;
+   align-items: center;
   }
 
   .lines {
@@ -168,6 +169,14 @@
   .btnContainer h1 {
     margin: 0;
     color: white;
+  }
+
+  .noPlanContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50%;
   }
 
 

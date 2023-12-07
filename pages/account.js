@@ -114,7 +114,9 @@ export default function Account() {
         profile={loggedIn ? { name: "User" } : null}></Navbar>
         <div className={styles.btnContainer}>
         <h1>My plans</h1>
-        <ExportPDFButton dataToExport={plans}></ExportPDFButton>
+        {plans && plans.length > 0 ? 
+        <ExportPDFButton dataToExport={plans}></ExportPDFButton> : ""
+      } 
         </div>
       <div className={styles.plansContainer}>
         {plans && plans.length > 0 ? (
@@ -134,14 +136,17 @@ export default function Account() {
 
           )
         ) : (
-          <div>
+          <div className={styles.noPlanContainer}>
             <div className={styles.noplan}>No plans created</div>
             <a href="/plannerHome" className={styles.newone}>Create a new plan +</a>
           </div>
         )}
+        {plans && plans.length > 0 ? 
         <div className={styles.createnew}>
-          <a href="/plannerHome">Edit or create a plan +</a>
-        </div>
+        <a href="/plannerHome">Edit or create a plan +</a>
+      </div> : ""
+      }
+        
 
       </div>
     </div>
