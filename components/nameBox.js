@@ -135,7 +135,7 @@ export default function NameBox({selectedCheckbox, uid}){
 
     return(
         <form className={styles.settings}>
-        <div className={styles.boxTitle} onClick={handleInputClick}>Save to collection:</div>
+        <div className={styles.boxTitle} onClick={handleInputClick}>Click to save to collection:</div>
         {showDropdown && (
         <div className="dropdown">
           <div className={styles.boxContainer}>
