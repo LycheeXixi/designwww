@@ -74,3 +74,10 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+@media only screen and (max-width: 640px) {
+    .everybutton img{
+        width: 1em;
+        height: auto;
+    }
+  }
