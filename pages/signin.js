@@ -56,7 +56,8 @@ onAuthStateChanged(auth, (user) => {
         <div className={styles.container}>
             <Navbar loggedIn={loggedIn} 
     profile={loggedIn ? { name: "User" } : null}></Navbar>
-            {loggedIn ? "" : <div className={styles.welcomeSection}>
+    <div className={styles.pageContainer}>
+    {loggedIn ? "" : <div className={styles.welcomeSection}>
                 <h1>Welcome!</h1>
                 <p>Make your detailed and personal plan in Helsinki. Make your detailed and personal</p>
                 <Link href="/">
@@ -85,6 +86,8 @@ onAuthStateChanged(auth, (user) => {
            <button type="submit" className={styles.signInButton}>Sign in</button>
        </form>
             </div>}
+    </div>
+            
         </div>
     );
 }
