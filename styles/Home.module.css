@@ -3,14 +3,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Centers content horizontally */
   justify-content: center;
-  /* Centers content vertically */
   /* padding-left: 2.5em; */
   padding-top: 10em;
   width: 100%;
   min-height: 100vh;
-  /* Ensures at least full viewport height */
   overflow-x: hidden;
 }
 
@@ -69,15 +66,12 @@
   border: none;
   border-radius: 1.5em;
   margin-top: 4em;
-  /* optional, if you want rounded edges */
   padding: 0.8em 1em;
-  /* adjust padding as needed */
   font-size: 1.5rem;
   width: fit-content;
   cursor: pointer;
   transition: background-color 0.3s ease;
   /* top: calc(70% + 2rem); */
-  /* adjust as needed to position it right below the smallTextL */
   /* transform: translateY(350%) translateX(-245%); */
   z-index: 1000;
   /* margin-bottom: 2rem; */
@@ -87,19 +81,16 @@
 
 .startPlanningButton:hover {
   background-color: #e45077;
-  /* a slightly darker shade for hover effect */
 }
 
 .introductionTextR {
   /* position: absolute; */
   /* right: 1.5rem; */
-  /* This will keep the text 1.5rem from the right edge */
   color: white;
   font-size: 1.2rem;
   font-weight: normal;
   width: 20%;
   justify-self: right;
-  /* Adjust width as needed to prevent overflowing */
   /* transform: translateY(-15%) translateX(-50%); */
   text-align: justify;
   z-index: 1000;
@@ -110,14 +101,13 @@
 .contactSection h1 {
   color: white;
   font-weight: bold;
-  /* Add any additional styling you want for the titles */
 }
 
 .aboutSection,
 .contactSection {
   align-self: flex-start;
   padding-left: 10%;
-  margin-top: 20rem; /* Creates a space between sections */
+  margin-top: 20rem; 
   width:70%;
   line-height: 2em;
 }
@@ -146,9 +136,7 @@
 
   .startPlanningButton {
     font-size: 1.2rem;
-    /* reducing the font-size for smaller screens */
     padding: 0.6em 0.8em;
-    /* reducing the padding */
   }
 
   .introductionTextR {
@@ -157,14 +145,11 @@
     justify-self: left;
     text-align: left;
     margin-top: 3em;
-    /* You can adjust this to allow more width for the text on tablets */
   }
 
   .gradientBackground::after {
     width: 50%;
-    /* Increase or decrease as required */
     height: 55%;
-    /* Increase or decrease as required */
   }
 }
 
@@ -192,8 +177,6 @@
 
   .gradientBackground::after {
     width: 60%;
-    /* Increase or decrease as required */
     height: 60%;
-    /* Increase or decrease as required */
   }
 }

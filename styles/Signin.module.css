@@ -3,14 +3,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* Centers content horizontally */
   justify-content: center;
-  /* Centers content vertically */
   /* padding-left: 2.5em; */
   padding-top: 10em;
   width: 100%;
   min-height: 100vh;
-  /* Ensures at least full viewport height */
   overflow-x: hidden;
 }
 
@@ -68,9 +65,7 @@
   border-radius: 1.5em;
   margin-top: 0.7em;
   margin-left: 4em;
-  /* optional, if you want rounded edges */
   padding: 0.8em 0.5em;
-  /* adjust padding as needed */
   font-size: 0.8rem;
   width: 9em;
   cursor: pointer;
@@ -174,7 +169,6 @@
   margin-bottom: 1em;
 }
 
-/* Form Footer */
 .formFooter {
   display: flex;
   align-items: center;
@@ -193,7 +187,6 @@
 }
 
 
-/* Sign In Button */
 .signInButton {
   font-size: 1em;
   width: 100%;

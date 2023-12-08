@@ -38,14 +38,14 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    justify-content: top; /* Center the search bar horizontally */
+    justify-content: top; 
     align-items: center;
     width: 100vw;
-    padding: 1em; /* Give some space around the search bar */
+    padding: 1em; 
   }
 
   .searchBarContainer {
-    position: relative; /* This is needed to position the search button absolutely within it */
+    position: relative; 
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -61,34 +61,34 @@
     width: 100%;
     display: flex;
     padding: 0.5em;
-    /* padding-right: 40px; Add padding to make room for the button */
-    border-radius: 58px; /* Gives a rounded shape to the search bar */
+    /* padding-right: 40px; */
+    border-radius: 58px; 
     border: 1px solid #ccc;
     font-size: 1em;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     opacity: 0.9;
     background: rgba(255, 255, 255, 0.7);
-    outline: none; /* Optional: removes the outline */
+    outline: none; 
   }
 
   .button {
-    position: relative; /* Position it inside the searchBarWrapper */
-    right: 0%; /* Align it to the right */
-    top: 0; /* Align it to the top */
-    height: 100%; /* Match the height of the searchBar */
+    position: relative; 
+    right: 0%; 
+    top: 0; 
+    height: 100%; 
     margin: auto;
     border: none;
-    background: none; /* Make the button background transparent */
+    background: none; 
     cursor: pointer;
     padding: auto;
     /* margin-right: 1em; */
-    border-top-right-radius: 58px; /* Match the search bar's border-radius */
-    border-bottom-right-radius: 58px; /* Match the search bar's border-radius */
+    border-top-right-radius: 58px; 
+    border-bottom-right-radius: 58px; 
     z-index: 10000;
 }
 
 .button img {
-    width: 25px; /* or the size you want */
+    width: 25px; 
     height: auto;
     
 }

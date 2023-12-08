@@ -24,7 +24,6 @@ export default function Filter() {
 
   return (
     <div className={styles.filter}>
-      {/* Use an icon as the button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={styles.filter__iconButton}
