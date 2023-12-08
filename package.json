@@ -16,5 +16,8 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "dotenv-webpack": "^8.0.1"
   }
 }
