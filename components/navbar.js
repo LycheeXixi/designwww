@@ -71,7 +71,7 @@ function Navbar(e) {
                     {loggedIn ?  <Link href="" onClick={signOutFunction}>Sign Out</Link> : <Link href="/signin">Sign In</Link>}
                 </li>
                 <li className={styles.navItem}>
-                {profileName ? <Link href="/account">{profileName}</Link> : <Link href="/signup">Sign Up</Link> }
+                {profileName ? <Link href="/account">Plans</Link> : <Link href="/signup">Sign Up</Link> }
                     
                 </li>
                 {/* Add more links as needed */}

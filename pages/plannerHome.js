@@ -45,7 +45,6 @@ export default function plannerHome() {
                 <Navbar loggedIn={loggedIn}
                     profile={loggedIn ? { name: "User" } : null}></Navbar>
                 <SearchFunction uid={uid}></SearchFunction>
-                
                 <img src="/Mask1.svg" className={styles.rotatingSvg} alt="Rotating SVG" />
             </div>
         )

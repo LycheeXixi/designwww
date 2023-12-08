@@ -22,7 +22,7 @@ export default function SearchFunction({uid}) {
             <div className={styles.pageLayout}>
             <SearchBar onSearchData={handleSearchdata} queryText={setQueryText}/>
                 <div className={`${styles.title} ${jsonData ? styles.disappear : ""}`}>Get Ready</div>
-            <div className={`${styles.text}  ${jsonData ? styles.disappear : ""}`}>collection of the most beautiful places and experience </div>
+            <div className={`${styles.text}  ${jsonData ? styles.disappear : ""}`}> Click the search icon directly to get recommendations. </div>
                 <img src="/Smile.svg" className={`${styles.smileSvg} ${jsonData ? styles.disappear : ""}`} />
                 <div className={`${styles.mapContainer} ${jsonData ? styles.appear : ""}`}>
                 <Map jsonData={jsonData} queryText={queryText} uid={uid}/>

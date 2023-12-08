@@ -78,7 +78,6 @@ const [isOpen, setIsOpen] = useState(false);
             <input id="textbox" className={styles.textbox} type="text"
                 value={searchTerm}
                 onInput={handleInput}
-                
                 onKeyDown={handleKeyPress}
                 placeholder="Search..." />
                 <Filter isOpen={isOpen} setIsOpen={setIsOpen} dropdownRef={dropdownRef} />
