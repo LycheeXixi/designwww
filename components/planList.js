@@ -60,7 +60,7 @@ export default function PlanList({ plansData, uid }) {
           <h3>{data.destinationName}</h3>
           <div className={styles.pAlign}>
             <p>{data.address}</p>
-            {edit ? <button data-key={i} className={styles.everybutton} onClick={() => deleteItem(i)}><img src="/delete.svg" alt="Edit" /></button> : ""}
+            {edit ? <button data-key={i} className={styles.everybutton} onClick={() => deleteItem(i)}><img src="delete.png" alt="Edit" /></button> : ""}
           </div>
         </div>
       ))}

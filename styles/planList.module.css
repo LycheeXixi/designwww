@@ -29,7 +29,7 @@
     display: flex;
 }
 .everybutton{
-    width: 4em; 
+    width: 2em; 
     color: #84b1ec;
     height: 100%;
     background: none;
@@ -37,7 +37,9 @@
     transition: all 0.3s;
     position: relative;
     cursor: pointer;
+    padding: 0;
 }
+
 
 .editButton:hover{
     background-color:  #933737;
@@ -77,7 +79,7 @@
 
 @media only screen and (max-width: 640px) {
     .everybutton img{
-        width: 3em;
+        width: 1.5em;
         height: auto;
     }
   }
