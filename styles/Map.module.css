@@ -45,6 +45,7 @@
  .scrollable {
    overflow-y: scroll;
    scrollbar-width: none;
+   height: 100%;
  }
 
  .settings {
@@ -54,6 +55,7 @@
    z-index: 1000;
    background-color: #ffffff;
    width: 100%;
+   height: max-content;
    display: flex;
    justify-content: end;
    border-radius: 15px 15px 0px 0px;
@@ -229,19 +231,39 @@
   flex-direction: column;
  }
 
+ .dropdown {
+  position: absolute;
+  bottom: 5em;
+  background-color: #ffffff;
+  box-shadow: 10px 5px 30px #00000022;
+  padding: 0.5em;
+  border-radius: 10px;
+ }
+
  .existingPlans {
    background-color: #fd6188;
-   color: white;
+   color: #ffffff;
    border-radius: 20px;
    border-width: 0px;
    backdrop-filter: blur(6px);
    height: 2em;
-   width: 50%;
+   width: 67%;
    margin-bottom: 1em;
-   margin-left: 2em;
    cursor: pointer;
+   position: relative;
  }
 
  .boxTitle {
+  background-color: #fd6188;
+  color: white;
+  border-radius: 20px;
+  border-width: 0px;
+  backdrop-filter: blur(6px);
+  height: fit-content;
   cursor: pointer;
+  padding: 0.5em;
+ }
+
+ .textContainer {
+  display: flex;
  }

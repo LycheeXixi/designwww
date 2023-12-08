@@ -78,7 +78,7 @@ export default function Map({ jsonData, queryText, uid}) {
 
   const stores = transformedData;
 
-  mapboxgl.accessToken = 'pk.eyJ1IjoiaG9uZ3hpIiwiYSI6ImNscDM1NGlnOTExbHgycXM2b3ZpcmNyNmsifQ.DQH2qI0oG0PSGQE61L1Jrg';
+  mapboxgl.accessToken = process.env.mapbox_API;
 
 
   // const map = new mapboxgl.Map({

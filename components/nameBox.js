@@ -14,7 +14,7 @@ export default function NameBox({selectedCheckbox, uid}){
 
 
       const handleInputClick = () => {
-        setShowDropdown(true);
+        setShowDropdown(!showDropdown);
       };
     
       const handleInputChange = (e) => {
@@ -134,9 +134,9 @@ export default function NameBox({selectedCheckbox, uid}){
 
     return(
         <form className={styles.settings}>
-        <div className={styles.boxTitle} onClick={handleInputClick}>Click to save to collection:</div>
+        <div className={styles.boxTitle} onClick={handleInputClick}>+ Save to collection</div>
         {showDropdown && (
-        <div className="dropdown">
+        <div className={styles.dropdown}>
           <div className={styles.boxContainer}>
             {existingPlans
               .map((existingPlan, i) => (
@@ -145,8 +145,11 @@ export default function NameBox({selectedCheckbox, uid}){
                 </button>
               ))}
           </div>
+          <div className={styles.textContainer}>
           <input className={styles.textBox} placeholder='+ New Collection' type='text' value={planName} onInput={onInput} onChange={handleInputChange}required></input>
                 <button className={styles.saveButton} onClick={handleFormSubmit}>Save</button>
+          </div>
+         
         </div>
       )}
        

@@ -25,7 +25,7 @@ const [isOpen, setIsOpen] = useState(false);
         
         console.log(searchTerm);
 
-        const apiKey = 'AIzaSyCYgdGcRVj0aEzr-Y_AEDy6tGZZeEBZE0Q'; 
+        const apiKey = process.env.GooglePlaces_API; 
         const url = 'https://places.googleapis.com/v1/places:searchText';
 
         var data = {
