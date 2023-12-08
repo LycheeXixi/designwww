@@ -21,11 +21,14 @@ export default function NameBox({selectedCheckbox, uid}){
       };
     
       const handlePlanSelect = (e, selectedPlan) => {
-        console.log(selectedPlan)
-        e.preventDefault();
-        setPlanName(selectedPlan);
-        setShowDropdown(false);
-        handleFormSubmit();
+        if(selectedPlan!=null){
+          console.log(selectedPlan)
+          console.log(e)
+          e.preventDefault();
+          setPlanName(selectedPlan);
+          setShowDropdown(false);
+          handleFormSubmit();
+        }
       };
 
     function handleFormSubmit(e){
@@ -55,7 +58,6 @@ export default function NameBox({selectedCheckbox, uid}){
             if (selectedCheckbox.length > 0) {
               if (uid) {
                 const placesCollectionRef = collection(db, 'users', uid, 'places');
-                console.log(placesCollectionRef)
                 const dataArray = []
                 
                 selectedCheckbox.forEach((e) => {
@@ -67,7 +69,8 @@ export default function NameBox({selectedCheckbox, uid}){
                   }
                   dataArray.push(obj)
                 })
-    
+                console.log(placesCollectionRef)
+                console.log(planName)
                 //Check if file is available before pushing
                 const docSnap = await getDoc(doc(placesCollectionRef, planName));
                 console.log("got docref")
