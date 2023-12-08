@@ -55,6 +55,7 @@ export default function NameBox({selectedCheckbox, uid}){
             if (selectedCheckbox.length > 0) {
               if (uid) {
                 const placesCollectionRef = collection(db, 'users', uid, 'places');
+                console.log(placesCollectionRef)
                 const dataArray = []
                 
                 selectedCheckbox.forEach((e) => {
