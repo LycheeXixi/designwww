@@ -117,7 +117,9 @@
 .contactSection {
   align-self: flex-start;
   padding-left: 10%;
-  margin-top: 25rem; /* Creates a space between sections */
+  margin-top: 20rem; /* Creates a space between sections */
+  width:70%;
+  line-height: 2em;
 }
 
 .aboutText,
@@ -125,6 +127,7 @@
   color: white;
   font-size: 1.2rem;
   font-weight: normal;
+  padding-top: 2em;
 }
 
 @media only screen and (max-width: 768px) {
