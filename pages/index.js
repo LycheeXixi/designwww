@@ -51,7 +51,7 @@ onAuthStateChanged(auth, (user) => {
 
       <div id="about" className={styles.aboutSection}> {/* Using "id" for navigation */}
         <h1>About Us</h1>
-        <div className={styles.aboutText}>Travel Planner is a website</div>
+        <div className={styles.aboutText}>Travel Planner is a website to make trip planning more flexible for users. It allows users to search for destinations, receive destination or attraction recommendations, create travel plans with existing templates, automatically add itineraries to their plan, freely add and remove the contents of the travel plan, as well as exporting the plan to share it with others.</div>
         {/* Add your about content here */}
       </div>
 
